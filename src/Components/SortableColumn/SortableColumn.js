@@ -1,17 +1,17 @@
 import React from 'react';
 import { DndContext, closestCenter } from '@dnd-kit/core';
-import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { useState } from 'react';
+import { /*arrayMove,*/ SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+//import { useState } from 'react';
 import { SortableItem } from '../SortableItem/SortableItem';
-import { initialGames } from '../../data';
+//import { initialGames } from '../../data';
 import Col from 'react-bootstrap/Col';
 import './SortableColumn.css';
 
 
 
 
-function SortableColumn(props) {
-    const [games, setGames] = useState(initialGames);
+function SortableColumn({playerName, state, onDragEnd}) {
+    /*const [games, setGames] = useState(initialGames);
 
     function handleDragEnd(event) {
       const {active, over} = event;
@@ -24,7 +24,7 @@ function SortableColumn(props) {
           return arrayMove(items, activeIndex, overIndex);
         })
       }
-    }
+    }*/
 
     const calcPoints = (item, array) => {
       const currentIndex = array.indexOf(item);
@@ -36,16 +36,16 @@ function SortableColumn(props) {
     return (
         <DndContext
           collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
+          onDragEnd={onDragEnd}
         >
           <Col className="playerCol">
-            <h4>{props.playerName}</h4>
+            <h4>{playerName}</h4>
             <SortableContext
-              items={games}
+              items={state}
               strategy={verticalListSortingStrategy}
             >
     
-              {games.map(game => <SortableItem key={game} id={game} index={games.indexOf(game)} points={calcPoints(game,games)}/>)}
+              {state.map(game => <SortableItem key={game} id={game} index={state.indexOf(game)} points={calcPoints(game,state)}/>)}
             </SortableContext>
           </Col>
         </DndContext>

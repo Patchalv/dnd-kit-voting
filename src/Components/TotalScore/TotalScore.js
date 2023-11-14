@@ -1,13 +1,21 @@
 import React from 'react';
-import { initialGames } from '../../data';
 import './TotalScore.css';
 
-function TotalScore() {
+function TotalScore({state1, state2, state3, state4}) {
+
+  const calcPoints = (item, array) => {
+    const currentIndex = array.indexOf(item);
+    const arrayLength = array.length;
+    const pointsValue = arrayLength - currentIndex;
+    return pointsValue;
+  }
+
+
   return (
     <div className='totalScore'> 
         <h4>Total Score:</h4>
         <ul>
-            {initialGames.map(game => <li key={game}>{game}:</li>)}
+            {state1.map(game => <li key={game}>{game}: {calcPoints(game, state1)}</li>)}
         </ul>
     </div>
   )
