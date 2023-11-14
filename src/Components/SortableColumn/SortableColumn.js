@@ -28,7 +28,7 @@ function SortableColumn(props) {
 
     const calcPoints = (item, array) => {
       const currentIndex = array.indexOf(item);
-      const arrayLength = array.length - 1;
+      const arrayLength = array.length;
       const pointsValue = arrayLength - currentIndex;
       return pointsValue;
     }
