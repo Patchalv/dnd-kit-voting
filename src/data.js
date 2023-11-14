@@ -1,0 +1,1 @@
+export const initialGames = ["7 Wonders", "Settlers of Catan", "Agricola", "Azul", "Dice Game"];

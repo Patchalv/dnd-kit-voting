@@ -1,0 +1,10 @@
+.playerCol {
+    margin: 10px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.playerCol h4 {
+    margin-top: 10px;
+}
